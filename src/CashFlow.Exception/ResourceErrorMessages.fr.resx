@@ -127,7 +127,7 @@
     <value>Le type de paiement n'est pas valide.</value>
   </data>
   <data name="TITLE_IS_REQUIRED" xml:space="preserve">
-    <value>Le titre est ebligatoire.</value>
+    <value>Le titre est obligatoire.</value>
   </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Erreur inconnue.</value>
