@@ -1,7 +1,6 @@
 ﻿using CashFlow.Application;
-using CashFlow.Communication.Enums;
-using CashFlow.Communication.Requests;
 using CommonTestUtilities.Request;
+using FluentAssertions;
 
 namespace Validators.Tests;
 
@@ -18,6 +17,6 @@ public class RegisterExpenseValidatorTests
         var result = validator.Validate(request);
 
         // Assert
-        Assert.True(result.IsValid);
+        result.IsValid.Should().BeTrue();
     }
 }
