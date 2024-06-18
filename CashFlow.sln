@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashFlow.Infrastructure", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validators.Tests", "tests\Validators.Tests\Validators.Tests.csproj", "{09DDE1D3-8691-40BD-A25F-AC5882334168}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTestUtilities", "tests\CommonTestUtilities\CommonTestUtilities.csproj", "{4ED6F6BA-1005-4517-921B-D95AA409AA3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{09DDE1D3-8691-40BD-A25F-AC5882334168}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09DDE1D3-8691-40BD-A25F-AC5882334168}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09DDE1D3-8691-40BD-A25F-AC5882334168}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ED6F6BA-1005-4517-921B-D95AA409AA3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ED6F6BA-1005-4517-921B-D95AA409AA3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ED6F6BA-1005-4517-921B-D95AA409AA3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ED6F6BA-1005-4517-921B-D95AA409AA3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{F6D919AD-EE7F-427C-B1DD-0E74A96C68E0} = {33BE572F-6C6D-48F7-B779-B52EE06A58E8}
 		{DC8633F2-D2DF-4852-A727-E3C2054EA455} = {33BE572F-6C6D-48F7-B779-B52EE06A58E8}
 		{09DDE1D3-8691-40BD-A25F-AC5882334168} = {A157833B-0DBD-48B1-A05D-0317C6DCC2D7}
+		{4ED6F6BA-1005-4517-921B-D95AA409AA3D} = {A157833B-0DBD-48B1-A05D-0317C6DCC2D7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {59DDD1CC-9F78-45C1-85A2-B749EC63D6CD}
