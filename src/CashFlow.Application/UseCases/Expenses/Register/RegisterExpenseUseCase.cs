@@ -1,6 +1,7 @@
 using CashFlow.Communication.Enums;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
+using CashFlow.Domain;
 using CashFlow.Exception;
 using FluentValidation;
 
@@ -11,6 +12,15 @@ public class RegisterExpenseUseCase
     public ResponseRegisteredExpenseJson Execute(RequestRegisterExpenseJson request)
     {
         Validate(request);
+
+        var entity = new Expense
+        {
+            Amount = request.Amount,
+            Date = request.Date,
+            Description = request.Description,
+            Title = request.Title,
+            PaymentType = (Domain.Enums.PaymentType)request.PaymentType,
+        };
 
         return new ResponseRegisteredExpenseJson();
     }
