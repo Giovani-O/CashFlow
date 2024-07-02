@@ -19,6 +19,7 @@ public class AutoMapping : Profile
     {
         CreateMap<ResponseRegisteredExpenseJson, Expense>().ReverseMap();
         CreateMap<Expense, ResponseShortExpenseJson>().ReverseMap();
+        CreateMap<Expense, ResponseExpenseJson>().ReverseMap();
     }
 
     private void RequestMapper()

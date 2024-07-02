@@ -4,4 +4,5 @@ public interface IExpensesRepository
 {
     public Task Add(Expense expense);
     public Task<List<Expense>> GetAll();
+    public Task<Expense?> GetById(long id);
 }
