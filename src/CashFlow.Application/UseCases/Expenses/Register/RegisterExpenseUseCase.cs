@@ -5,6 +5,7 @@ using CashFlow.Communication.Responses;
 using CashFlow.Domain;
 using CashFlow.Domain.Repositories.Expenses;
 using CashFlow.Exception;
+using CashFlow.Exception.ExceptionsBase;
 using FluentValidation;
 
 namespace CashFlow.Application.UseCases.Expenses.Register;

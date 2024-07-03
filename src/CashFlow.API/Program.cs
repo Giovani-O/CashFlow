@@ -1,4 +1,4 @@
-using CashFlow.API;
+using CashFlow.API.Filters;
 using CashFlow.API.Middleware;
 using CashFlow.Application;
 using CashFlow.Infrastructure;
