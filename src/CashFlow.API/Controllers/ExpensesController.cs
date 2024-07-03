@@ -1,6 +1,6 @@
 using CashFlow.Application;
+using CashFlow.Application.UseCases.Expenses.Delete;
 using CashFlow.Application.UseCases.Expenses.GetById;
-using CashFlow.Application.UseCases.Expenses.Register;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
 using CashFlow.Communications.Responses;
@@ -50,5 +50,19 @@ public class ExpensesController : ControllerBase
 		var response = await useCase.Execute(id);
 
 		return Ok(response);
+	}
+
+	[HttpDelete]
+	[Route("{id}")]
+	[ProducesResponseType(StatusCodes.Status204NoContent)]
+	[ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
+	public async Task<IActionResult> Delete(
+		[FromServices] IDeleteExpenseUseCase useCase,
+		[FromRoute] long id
+		)
+	{
+		await useCase.Execute(id);
+
+		return NoContent();
 	}
 }
