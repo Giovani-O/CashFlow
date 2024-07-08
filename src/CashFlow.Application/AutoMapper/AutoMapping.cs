@@ -2,6 +2,7 @@
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
 using CashFlow.Domain;
+using CashFlow.Domain.Entities;
 
 namespace CashFlow.Application.AutoMapper;
 
@@ -24,7 +25,7 @@ public class AutoMapping : Profile
 
     private void RequestMapper()
     {
-        CreateMap<RequestRegisterExpenseJson, Expense>().ReverseMap();
+        CreateMap<RequestExpenseJson, Expense>().ReverseMap();
     }
 
     // private void ResponseToEntity()

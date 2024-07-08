@@ -1,4 +1,5 @@
 ﻿using CashFlow.Domain;
+using CashFlow.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CashFlow.Infrastructure;
