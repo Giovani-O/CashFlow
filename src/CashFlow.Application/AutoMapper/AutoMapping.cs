@@ -14,23 +14,13 @@ public class AutoMapping : Profile
 
     private void RequestToEntity()
     {
-        CreateMap<RequestRegisterUserJson, User>()
-            .ForMember(dest => dest.Password, config => config.Ignore());
-
-        CreateMap<RequestExpenseJson, Expense>()
-            .ForMember(dest => dest.Tags, config => config.MapFrom(source => source.Tags.Distinct()));
-
-        CreateMap<Communication.Enums.Tag, Tag>()
-            .ForMember(dest => dest.Value, config => config.MapFrom(source => source));
+        CreateMap<RequestExpenseJson, Expense>();
     }
 
     private void EntityToResponse()
     {
-        CreateMap<Expense, ResponseExpenseJson>()
-            .ForMember(dest => dest.Tags, config => config.MapFrom(source => source.Tags.Select(tag => tag.Value)));
-
         CreateMap<Expense, ResponseRegisteredExpenseJson>();
         CreateMap<Expense, ResponseShortExpenseJson>();
-        CreateMap<User, ResponseUserProfileJson>();
+        CreateMap<Expense, ResponseExpenseJson>();
     }
 }

@@ -1,7 +1,6 @@
 ﻿using CashFlow.Domain.Entities;
 using CashFlow.Domain.Repositories.Expenses;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query;
 
 namespace CashFlow.Infrastructure.DataAccess.Repositories;
 internal class ExpensesRepository : IExpensesReadOnlyRepository, IExpensesWriteOnlyRepository, IExpensesUpdateOnlyRepository
@@ -17,29 +16,32 @@ internal class ExpensesRepository : IExpensesReadOnlyRepository, IExpensesWriteO
         await _dbContext.Expenses.AddAsync(expense);
     }
 
-    public async Task Delete(long id)
+    public async Task<bool> Delete(long id)
     {
-        var result = await _dbContext.Expenses.FindAsync(id);
+        var result = await _dbContext.Expenses.FirstOrDefaultAsync(expense => expense.Id == id);
+        if(result is null)
+        {
+            return false;
+        }
 
-        _dbContext.Expenses.Remove(result!);
+        _dbContext.Expenses.Remove(result);
+
+        return true;
     }
 
-    public async Task<List<Expense>> GetAll(User user)
+    public async Task<List<Expense>> GetAll()
     {
-        return await _dbContext.Expenses.AsNoTracking().Where(expense => expense.UserId == user.Id).ToListAsync();
+        return await _dbContext.Expenses.AsNoTracking().ToListAsync();
     }
 
-    async Task<Expense?> IExpensesReadOnlyRepository.GetById(User user, long id)
+    async Task<Expense?> IExpensesReadOnlyRepository.GetById(long id)
     {
-        return await GetFullExpense()
-            .AsNoTracking()
-            .FirstOrDefaultAsync(expense => expense.Id == id && expense.UserId == user.Id);
+        return await _dbContext.Expenses.AsNoTracking().FirstOrDefaultAsync(expense => expense.Id == id);
     }
 
-    async Task<Expense?> IExpensesUpdateOnlyRepository.GetById(User user, long id)
+    async Task<Expense?> IExpensesUpdateOnlyRepository.GetById(long id)
     {
-        return await GetFullExpense()
-            .FirstOrDefaultAsync(expense => expense.Id == id && expense.UserId == user.Id);
+        return await _dbContext.Expenses.FirstOrDefaultAsync(expense => expense.Id == id);
     }
 
     public void Update(Expense expense)
@@ -47,7 +49,7 @@ internal class ExpensesRepository : IExpensesReadOnlyRepository, IExpensesWriteO
         _dbContext.Expenses.Update(expense);
     }
 
-    public async Task<List<Expense>> FilterByMonth(User user, DateOnly date)
+    public async Task<List<Expense>> FilterByMonth(DateOnly date)
     {
         var startDate = new DateTime(year: date.Year, month: date.Month, day: 1).Date;
 
@@ -57,15 +59,9 @@ internal class ExpensesRepository : IExpensesReadOnlyRepository, IExpensesWriteO
         return await _dbContext
             .Expenses
             .AsNoTracking()
-            .Where(expense => expense.UserId == user.Id && expense.Date >= startDate && expense.Date <= endDate)
+            .Where(expense => expense.Date >= startDate && expense.Date <= endDate)
             .OrderBy(expense => expense.Date)
             .ThenBy(expense => expense.Title)
             .ToListAsync();
-    }
-
-    private IIncludableQueryable<Expense, ICollection<Tag>> GetFullExpense()
-    {
-        return _dbContext.Expenses
-            .Include(expense => expense.Tags);
     }
 }
