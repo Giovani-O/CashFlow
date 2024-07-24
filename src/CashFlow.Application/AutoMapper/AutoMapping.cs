@@ -1,40 +1,36 @@
 ﻿using AutoMapper;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
-using CashFlow.Domain;
 using CashFlow.Domain.Entities;
 
 namespace CashFlow.Application.AutoMapper;
-
 public class AutoMapping : Profile
 {
     public AutoMapping()
     {
-        ResponseMapper();
-        RequestMapper();
-        // ResponseToEntity();
-        // EntityToResponse();
+        RequestToEntity();
+        EntityToResponse();
     }
 
-    private void ResponseMapper()
+    private void RequestToEntity()
     {
-        CreateMap<ResponseRegisteredExpenseJson, Expense>().ReverseMap();
-        CreateMap<Expense, ResponseShortExpenseJson>().ReverseMap();
-        CreateMap<Expense, ResponseExpenseJson>().ReverseMap();
+        CreateMap<RequestRegisterUserJson, User>()
+            .ForMember(dest => dest.Password, config => config.Ignore());
+
+        CreateMap<RequestExpenseJson, Expense>()
+            .ForMember(dest => dest.Tags, config => config.MapFrom(source => source.Tags.Distinct()));
+
+        CreateMap<Communication.Enums.Tag, Tag>()
+            .ForMember(dest => dest.Value, config => config.MapFrom(source => source));
     }
 
-    private void RequestMapper()
+    private void EntityToResponse()
     {
-        CreateMap<RequestExpenseJson, Expense>().ReverseMap();
+        CreateMap<Expense, ResponseExpenseJson>()
+            .ForMember(dest => dest.Tags, config => config.MapFrom(source => source.Tags.Select(tag => tag.Value)));
+
+        CreateMap<Expense, ResponseRegisteredExpenseJson>();
+        CreateMap<Expense, ResponseShortExpenseJson>();
+        CreateMap<User, ResponseUserProfileJson>();
     }
-
-    // private void ResponseToEntity()
-    // {
-    //     CreateMap<ResponseRegisteredExpenseJson, Expense>();
-    // }
-
-    // private void EntityToResponse()
-    // {
-    //     CreateMap<Expense, ResponseRegisteredExpenseJson>();
-    // }
 }

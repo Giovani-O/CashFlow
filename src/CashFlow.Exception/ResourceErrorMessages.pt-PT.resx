@@ -120,20 +120,43 @@
   <data name="AMOUNT_MUST_BE_GREATER_THAN_ZERO" xml:space="preserve">
     <value>O montante deve ser maior que zero.</value>
   </data>
-  <data name="EXPENSES_CANNOT_BE_IN_THE_FUTURE" xml:space="preserve">
-    <value>As despesas não podem estar no futuro.</value>
+  <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
+    <value>Este correio eletrónico já está a ser utilizado.</value>
   </data>
-  <data name="PAYMENT_TYPE_IS_INVALID" xml:space="preserve">
-    <value>O tipo de pagamento inválido.</value>
+  <data name="EMAIL_EMPTY" xml:space="preserve">
+    <value>A mensagem de correio eletrónico não pode estar vazia.</value>
   </data>
-  <data name="TITLE_IS_REQUIRED" xml:space="preserve">
-    <value>O título é obrigatório.</value>
+  <data name="EMAIL_INVALID" xml:space="preserve">
+    <value>O correio eletrónico é inválido.</value>
   </data>
-  <data name="UNKNOWN_ERROR" xml:space="preserve">
-    <value>Erro desconhecido.</value>
+  <data name="EMAIL_OR_PASSWORD_INVALID" xml:space="preserve">
+    <value>E-mail e/ou palavra-passe inválidos.</value>
+  </data>
+  <data name="EXPENSES_CANNOT_FOR_THE_FUTURE" xml:space="preserve">
+    <value>As despesas não podem ser para o futuro.</value>
   </data>
   <data name="EXPENSE_NOT_FOUND" xml:space="preserve">
     <value>Despesa não encontrada.</value>
-    <comment/>
+  </data>
+  <data name="INVALID_PASSWORD" xml:space="preserve">
+    <value>A sua palavra-passe deve ter um mínimo de 8 caracteres, contendo pelo menos uma letra maiúscula, uma letra minúscula, um número e um carácter especial (por exemplo, !, ?, *, .).</value>
+  </data>
+  <data name="NAME_EMPTY" xml:space="preserve">
+    <value>O nome não pode estar vazio.</value>
+  </data>
+  <data name="PASSWORD_DIFFERENT_CURRENT_PASSWORD" xml:space="preserve">
+    <value>A palavra-passe introduzida é diferente da palavra-passe atual.</value>
+  </data>
+  <data name="PAYMENT_TYPE_INVALID" xml:space="preserve">
+    <value>O tipo de pagamento não é valido</value>
+  </data>
+  <data name="TAG_TYPE_NOT_SUPPORTED" xml:space="preserve">
+    <value>Etiqueta não suportada.</value>
+  </data>
+  <data name="TITLE_REQUIRED" xml:space="preserve">
+    <value>O título é obrigatório</value>
+  </data>
+  <data name="UNKNOWN_ERROR" xml:space="preserve">
+    <value>Erro desconhecido.</value>
   </data>
 </root>

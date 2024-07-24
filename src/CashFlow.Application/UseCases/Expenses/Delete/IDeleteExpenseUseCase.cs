@@ -1,6 +1,5 @@
-namespace CashFlow.Application.UseCases.Expenses.Delete;
-
+﻿namespace CashFlow.Application.UseCases.Expenses.Delete;
 public interface IDeleteExpenseUseCase
 {
-    public Task Execute(long id);
+    Task Execute(long id);
 }
