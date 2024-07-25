@@ -12,6 +12,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceReportGenerationMessages.resx</DependentUpon>
     </Compile>
+    <Compile Remove="Assets\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +20,11 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceReportGenerationMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Remove="Assets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\**" />
   </ItemGroup>
 
 </Project>
