@@ -135,4 +135,13 @@
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Erro desconhecido.</value>
   </data>
+  <data name="NAME_EMPTY" xml:space="preserve">
+    <value>O nome está vazio.</value>
+  </data>
+  <data name="EMAIL_EMPTY" xml:space="preserve">
+    <value>O email está vazio.</value>
+  </data>
+  <data name="EMAIL_INVALID" xml:space="preserve">
+    <value>O email é inválido.</value>
+  </data>
 </root>
