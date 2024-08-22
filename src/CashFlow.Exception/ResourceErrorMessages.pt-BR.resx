@@ -144,4 +144,10 @@
   <data name="EMAIL_INVALID" xml:space="preserve">
     <value>O email é inválido.</value>
   </data>
+  <data name="INVALID_PASSWORD" xml:space="preserve">
+    <value>Senha inválida. Deve conter 8 caracteres, com letras maiúsculas e minúsculas, além de números e caracteres especiais.</value>
+  </data>
+  <data name="EMAIL_ALREADY_EXISTS" xml:space="preserve">
+    <value>O email já está em uso.</value>
+  </data>
 </root>

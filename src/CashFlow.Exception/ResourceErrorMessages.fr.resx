@@ -144,4 +144,10 @@
   <data name="EMAIL_INVALID" xml:space="preserve">
     <value>L'e-mail n'est pas valide</value>
   </data>
+  <data name="INVALID_PASSWORD" xml:space="preserve">
+    <value>Mot de passe invalide. Je dois contenir 8 caractères, avec des lettres majuscules et minuscules, ainsi que des chiffres et des caractères spéciaux.</value>
+  </data>
+  <data name="EMAIL_ALREADY_EXISTS" xml:space="preserve">
+    <value>L'email est déjà utilisé</value>
+  </data>
 </root>
